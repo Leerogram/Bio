@@ -1,7 +1,7 @@
-package com.green.controller;
+package com.silee.Bio.controller;
 
-import com.green.user.domain.Users;
-import com.green.user.service.UserService;
+import com.silee.Bio.user.domain.Users;
+import com.silee.Bio.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(value = "join")
-    public void InputUser(Users users) throws Exception {
+    public void InputUser(Users users) {
         users.setUSERNAME("bootJpaTester1");
         users.setPASSWD("bootJpaTester1");
         users.setEMAIL("bootJpaTester1@gmail.com");
@@ -31,17 +31,17 @@ public class UserController {
         userService.InputUserInfo(users);
     }
     @RequestMapping(value = "delete")
-    public void DeleteUser(Users users) throws Exception {
+    public void DeleteUser(Users users) {
         users.setUSERNAME("bootJpaTester1");
         userService.DeleteUserInfo(users);
     }
     @RequestMapping(value = "modify")
-    public void ModifyUser(Users users) throws Exception {
+    public void ModifyUser(Users users) {
         users.setPASSWD("bootJpaTester2");
         userService.ModifyUserInfo(users);
     }
     @RequestMapping(value = "find")
-    public void FindUserById(Users users) throws Exception {
+    public void FindUserById(Users users) {
         users.setUSERNAME("bootJpaTester1");
         userService.FindUserInfo(users);
     }

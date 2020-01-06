@@ -1,4 +1,4 @@
-package com.green.user.domain;
+package com.silee.Bio.user.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

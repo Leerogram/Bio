@@ -1,7 +1,7 @@
-package com.green.user.service;
+package com.silee.Bio.user.service;
 
-import com.green.user.domain.Users;
-import com.green.user.repository.UserRepository;
+import com.silee.Bio.user.domain.Users;
+import com.silee.Bio.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /**
@@ -18,22 +18,22 @@ public class UserService implements UserInterface {
 
     // 사용자 정보 저장
     @Override
-    public void InputUserInfo(Users users) throws Exception {
+    public void InputUserInfo(Users users) {
         userRepo.save(users);
     }
     //사용자 정보 조회
     @Override
-    public void FindUserInfo(Users users) throws Exception {
+    public void FindUserInfo(Users users) {
         userRepo.findById(users.getUSERNAME());
     }
     //사용자 정보 수정
     @Override
-    public void ModifyUserInfo(Users users) throws Exception {
+    public void ModifyUserInfo(Users users) {
         userRepo.save(users);
     }
     //사용자 정보 삭제
     @Override
-    public void DeleteUserInfo(Users users) throws Exception {
+    public void DeleteUserInfo(Users users) {
         userRepo.delete(users);
     }
 }

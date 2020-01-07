@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultHandler;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.JsonPathResultMatchers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 /**
  * junit 컨트롤러 테스트
@@ -35,7 +33,7 @@ public class UserControllerTest {
         public void helloDto_return() throws Exception {
                 String name  = "sangil";
                 String pwd = "pwd";
-
+                //200106 .andExpect(MockMvcResultMatchers.jsonPath("$.testid", is("sangil"))) can not reserved Method
                 mock.perform(MockMvcRequestBuilders.get("/user/dto")
                 .param("testid", name).param("testpwd", pwd))
                         .andExpect(MockMvcResultMatchers.status().isOk())

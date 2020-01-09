@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본생성자 자동 추가 = public Posts() {}
 @Entity // 테이블과 링크될 클래스, CamelCase -> Underscore 테이블 이름 매칭, ex)SalesManager.java -> sales_manager.table
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id //PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 생성규칙. 부트2.0부터는 IDENTITY 옵션 추가해야 auto_increment가 됨.
     private Long id;

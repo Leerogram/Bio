@@ -9,6 +9,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.hamcrest.CoreMatchers.is;
+
 /**
  * junit 컨트롤러 테스트
  * @author 이상일
@@ -16,7 +19,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  * (2020.01.06) 이상일, 최초 작성
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest // @WebMvcTest 를 사용하는 경우 @Service, @Component, @Repository 등 을 사용할 수 없다.
+@WebMvcTest(UserController.class) // @WebMvcTest 를 사용하는 경우 @Service, @Component, @Repository 등 을 사용할 수 없다.
+// 2020.01.09 PostApiControllerTest 테스트 후에 해당 테스트 실행시 오류 -> @WebMvcTest에  (UserController.class) 범위 설정
 public class UserControllerTest {
         @Autowired
         private MockMvc mock;
@@ -37,7 +41,7 @@ public class UserControllerTest {
                 mock.perform(MockMvcRequestBuilders.get("/user/dto")
                 .param("testid", name).param("testpwd", pwd))
                         .andExpect(MockMvcResultMatchers.status().isOk())
-                        .andExpect(MockMvcResultMatchers.jsonPath("$.testid").value("sangil"))
-                        .andExpect((ResultMatcher) MockMvcResultMatchers.jsonPath("$.testpwd").value("pwd"));
+                        .andExpect(MockMvcResultMatchers.jsonPath("$.testid", is("sangil")))
+                        .andExpect(MockMvcResultMatchers.jsonPath("$.testpwd", is("pwd")));
         }
 }

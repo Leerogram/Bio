@@ -19,6 +19,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * jpa 테스트
+ * @author 이상일
+ * @version 1.0
+ * (2020.01.07) 이상일, 최초 작성
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PostsApiControllerTest {

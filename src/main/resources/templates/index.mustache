@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title>스프링부트 웹서비스</title>
-</head>
-<body>
+{{>header}} <!--현재 머스테치 파일을 기준으로 다른 파일을 가져온다-->
 <H1>스프링부트로 시작하는 웹서비스</H1>
-</body>
-</html>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+</div>
+{{>footer}}
